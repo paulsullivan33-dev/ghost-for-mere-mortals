@@ -1,0 +1,28 @@
+site_name: Ghost for Mere Mortals
+site_description: A clean, modern publishing platform for a blog or newsletter of your own. Installing Ghost on your own machine, setting up a publication, publishing through the editor and through its API, and proving every step against a real running site, with the limits stated plainly.
+site_url: https://paulsullivan33-dev.github.io/ghost-for-mere-mortals/
+copyright: 'Part of <a href="https://paulsullivan33-dev.github.io/mere-mortals/">For Mere Mortals</a> · Text CC BY 4.0, code MIT'
+
+# Guides live at the repo root (nice for GitHub browsing).
+# The deploy workflow copies them into docs/ before building.
+theme:
+  name: material
+
+nav:
+  - Home: index.md
+  - What Ghost Is: what-ghost-is.md
+  - The Moving Parts: the-moving-parts.md
+  - Installing Ghost: installing-ghost.md
+  - Your First Run: your-first-run.md
+  - Setting Up the Site: setting-up-the-site.md
+  - Writing and Publishing: writing-and-publishing.md
+  - Proving It Worked: proving-it-worked.md
+  - Publishing by Machine: publishing-by-machine.md
+  - Themes and Design: themes-and-design.md
+  - Members and Mail: members-and-mail.md
+  - Recipes: recipes.md
+  - The Neighbours: the-neighbours.md
+  - Limits: limits.md
+  - Troubleshooting: troubleshooting.md
+  - Glossary: glossary.md
+  - Writing Criteria: criteria.md

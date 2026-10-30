@@ -1,0 +1,15 @@
+A require-hook that logs every http/https request with its stack, added to a fresh boot:
+$ NODE_ENV=development node --require ./netwatch.js index.js
+[NETWATCH] https.request: https://www.gravatar.com/avatar/4249f4df72b475e7894fabed1c5888cf?s=250&r=x&d=404
+    at mod.request (/home/hatch/workspace/ghost-labwork/netwatch.js:14:13)
+    at Request._makeRequest (file:///home/hatch/workspace/ghost-labwork/ghost/node_modules/.pnpm/got@16.0.0/node_modules/got/dist/source/core/index.js:1966:37)
+    at async Request.flush (file:///home/hatch/workspace/ghost-labwork/ghost/node_modules/.pnpm/got@16.0.0/node_modules/got/dist/source/core/index.js:271:13)
+
+[NETWATCH] https.request: https://www.gravatar.com/avatar/4249f4df72b475e7894fabed1c5888cf?s=250&r=x&d=404
+    at mod.request (/home/hatch/workspace/ghost-labwork/netwatch.js:14:13)
+    at Request._makeRequest (file:///home/hatch/workspace/ghost-labwork/ghost/node_modules/.pnpm/got@16.0.0/node_modules/got/dist/source/core/index.js:1966:37)
+    at async Request.flush (file:///home/hatch/workspace/ghost-labwork/ghost/node_modules/.pnpm/got@16.0.0/node_modules/got/dist/source/core/index.js:271:13)
+
+One request, made while the first-run fixtures create the default "Ghost" user:
+a Gravatar lookup for that user's picture. On this network the request neither
+succeeds nor fails — it hangs — and the fixture transaction waits on it.

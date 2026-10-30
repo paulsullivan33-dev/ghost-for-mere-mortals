@@ -1,0 +1,17 @@
+$ curl -X POST http://localhost:2368/ghost/api/admin/authentication/setup/ -d {setup: [{name, email, password, blogTitle}]}  (throwaway lab values)
+{
+  "users": [
+    {
+      "name": "Jamie Rowan",
+      "email": "jamie@example.com",
+      "slug": "jamie",
+      "status": "active"
+    }
+  ],
+  "setup_status": null
+}
+
+$ curl http://localhost:2368/ghost/api/admin/authentication/setup/   (again, after setup)
+{"setup":[{"status":true}]}
+$ curl http://localhost:2368/ | grep <title>
+<title>The Shed Notebook</title>

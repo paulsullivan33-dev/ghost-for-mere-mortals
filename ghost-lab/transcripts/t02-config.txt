@@ -1,0 +1,22 @@
+$ cat config.development.json
+{
+    "url": "http://localhost:2368",
+    "server": {
+        "host": "127.0.0.1",
+        "port": 2368
+    },
+    "database": {
+        "client": "better-sqlite3",
+        "connection": {
+            "filename": "/home/hatch/workspace/ghost-labwork/ghost/content/data/ghost-dev.db"
+        }
+    },
+    "mail": {
+        "transport": "Direct"
+    },
+    "logging": {
+        "level": "info",
+        "transports": ["stdout"]
+    },
+    "process": "local"
+}

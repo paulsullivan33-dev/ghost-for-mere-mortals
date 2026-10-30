@@ -1,0 +1,19 @@
+First boot, ordinary network (all egress via the sandbox proxy):
+$ NODE_ENV=development node index.js
+[2026-10-30 08:56:31] INFO Ghost is running in development...
+[2026-10-30 08:56:31] INFO Listening on: 127.0.0.1:2368
+[2026-10-30 08:56:31] INFO Url configured as: http://localhost:2368/
+  ... ~90 "Creating table:" lines ...
+[2026-10-30 09:01:28] INFO Shutdown: Prometheus client finished in 0ms
+[2026-10-30 09:01:28] WARN Ghost has shut down
+[2026-10-30 09:01:28] WARN Ghost was running for 5 minutes
+
+Then nothing. Four minutes later the log had not moved, the front page still
+answered 503 ("We'll be right back"), and the process held one open connection:
+$ ss -tnp | grep node
+ESTAB 0 0 [fd8b:4f84:7d32:99::2]:53468 [fd8b:4f84:7d32:99::1]:3128 users:(("MainThread",pid=73267,fd=21))
+(port 3128 is the sandbox's egress proxy — Ghost was waiting on an outbound request)
+
+The database at that moment: schema complete, migrations table holding only
+"1-create-tables.js", the migrations lock still held, 0 settings, 0 users —
+the first-run fixture data had not been written.

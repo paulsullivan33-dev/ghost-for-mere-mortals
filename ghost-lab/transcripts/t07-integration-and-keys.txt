@@ -1,0 +1,25 @@
+$ curl -c cookies.txt -X POST http://localhost:2368/ghost/api/admin/session -d {username, password}   (throwaway lab password)
+sign-in HTTP 201
+$ curl -b cookies.txt -X POST http://localhost:2368/ghost/api/admin/integrations/ -d {integrations: [{name: "Lab publisher"}]}
+{
+  "integrations": [
+    {
+      "name": "Lab publisher",
+      "slug": "lab-publisher",
+      "api_keys": [
+        {
+          "type": "content",
+          "id": "6ae467dd8e2b2a33aebb2035",
+          "secret_prefix": "11b91d9f"
+        },
+        {
+          "type": "admin",
+          "id": "6ae467dd8e2b2a33aebb2037",
+          "secret_prefix": "6ae467dd"
+        }
+      ]
+    }
+  ]
+}
+Finding: the integrations API returns the Admin key "secret" as id:hexsecret (89 chars).
+The JWT signing secret is the 64-char hex after the colon — verified against the api_keys table.

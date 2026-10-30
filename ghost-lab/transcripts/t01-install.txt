@@ -1,0 +1,19 @@
+$ cd ghost && pnpm install --prod
+(957 lockfile entries; hundreds of per-package download lines omitted)
+? Verifying lockfile against supply-chain policies (957 entries)...
+✓ Lockfile passes supply-chain policies (957 entries in 0ms)
+Lockfile is up to date, resolution step is skipped
+Packages are hard linked from the content-addressable store to the virtual store.
+  Content-addressable store is at: /home/hatch/.local/share/pnpm/store/v11
+  Virtual store is at:             node_modules/.pnpm
+Progress: resolved 916, reused 42, downloaded 30, added 42
+Progress: resolved 916, reused 42, downloaded 37, added 74
+  ...
+optionalDependencies:
++ better-sqlite3 12.11.1
+
+Done in 2m 57.4s using pnpm v12.10.1
+
+Ghost 6 stores its data through knex on the better-sqlite3 driver — there is no
+top-level sqlite3 module any more (a first probe for it failed, MODULE_NOT_FOUND):
+$ node -e "require(\"better-sqlite3\")(\":memory:\")"   -> opens and runs fine (prebuilt binary, no compiler needed)

@@ -1,0 +1,14 @@
+First attempt signed the JWT with the whole "id:secret" string as the secret:
+POST /ghost/api/admin/posts/?source=html -> HTTP 401
+{ "errors": [ { "message": "Invalid token: invalid signature", "code": "INVALID_JWT" } ] }
+
+Signing with only the 64 hex characters after the colon:
+JWT minted (header kid = admin key id, audience /admin/, 5 minute life)
+POST /ghost/api/admin/posts/?source=html -> HTTP 201
+{
+ "title": "First entry — why this notebook exists",
+ "slug": "first-entry-why-this-notebook-exists",
+ "status": "published",
+ "url": "http://localhost:2368/first-entry-why-this-notebook-exists/",
+ "published_at": "2026-10-30T09:48:50.000Z"
+}

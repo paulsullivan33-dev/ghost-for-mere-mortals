@@ -1,0 +1,7 @@
+draft POST -> HTTP 201 {"title":"Bench notes — draft, not yet","status":"draft","url":"http://localhost:2368/p/813ecf9c-8dc6-4306-a794-d5943c75688f/"}
+Admin API sees: Bench notes — draft, not yet [draft] | First entry — why this notebook exists [published] | Coming soon [published]
+$ curl http://localhost:2368/ | grep -c "Bench notes"   (draft on the public front page?)
+0
+$ curl "http://localhost:2368/ghost/api/content/posts/?key=<content key>" | titles
+First entry — why this notebook exists
+Coming soon

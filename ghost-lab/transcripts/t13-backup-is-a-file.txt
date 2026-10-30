@@ -1,0 +1,7 @@
+$ cp ghost/content/data/ghost-dev.db backup-copy.db && sqlite3 backup-copy.db "select title, status from posts;"
+Coming soon [published]
+About this site [published]
+First entry — why this notebook exists [published]
+Bench notes — draft, not yet [draft]
+settings rows: 129
+users: Jamie Rowan <jamie@example.com>

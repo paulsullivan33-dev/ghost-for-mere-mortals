@@ -1,0 +1,21 @@
+$ curl http://localhost:2368/ | grep -c "First entry"
+1
+$ curl http://localhost:2368/first-entry-why-this-notebook-exists/
+HTTP 200
+<title>First entry — why this notebook exists</title>
+4
+$ curl "http://localhost:2368/ghost/api/content/posts/?key=<content key>"
+[
+  {
+    "title": "First entry — why this notebook exists",
+    "slug": "first-entry-why-this-notebook-exists",
+    "status": null
+  },
+  {
+    "title": "Coming soon",
+    "slug": "coming-soon",
+    "status": null
+  }
+]
+$ curl "http://localhost:2368/ghost/api/content/posts/"   (no key)
+{"errors":[{"message":"Authorization failed","context":"Unable to determine the authenticated member or integration. Check the supplied Content API Key and ensure cookies are being passed through if m

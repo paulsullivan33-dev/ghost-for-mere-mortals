@@ -1,0 +1,14 @@
+Same boot, but with the proxy address pointed at a port where nothing listens,
+so outbound requests fail at once instead of hanging:
+$ env NODE_ENV=development http_proxy=http://127.0.0.1:9999 https_proxy=http://127.0.0.1:9999 node index.js
+[2026-10-30 09:36:30] INFO Ghost is running in development...
+[2026-10-30 09:36:53] INFO Database is in a ready state.
+[2026-10-30 09:36:57] INFO Ghost booted in 30.207s
+
+$ curl -s -o /dev/null -w "%{http_code}" http://localhost:2368/
+HTTP 200
+<title>Ghost</title>
+Coming soon
+$ curl http://localhost:2368/ghost/api/admin/authentication/setup/
+{"setup":[{"status":false}]}
+admin HTTP 200 -> 

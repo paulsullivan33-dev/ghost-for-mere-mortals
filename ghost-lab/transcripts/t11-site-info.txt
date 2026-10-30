@@ -1,0 +1,9 @@
+$ curl -b cookies.txt http://localhost:2368/ghost/api/admin/site/
+{
+  "title": "The Shed Notebook",
+  "description": "Thoughts, stories and ideas.",
+  "url": "http://localhost:2368/",
+  "version": "6.73"
+}
+$ curl http://localhost:2368/ghost/ | <title>
+<title>Ghost</title>

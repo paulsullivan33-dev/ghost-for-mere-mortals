@@ -1,0 +1,8 @@
+[2026-10-30 09:49:29] INFO Database is in a ready state.
+[2026-10-30 09:49:32] INFO Ghost booted in 5.913s
+(restart used the ordinary network again — no fast-fail proxy: first-run fixtures
+ only run once, so the Gravatar lookup never happens again)
+
+HTTP 200
+<title>The Shed Notebook</title>
+1
